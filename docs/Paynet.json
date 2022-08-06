@@ -1,0 +1,458 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Paynet",
+    "version": "1.0",
+    "summary": "Paynet APIs"
+  },
+  "servers": [
+    {
+      "url": "http://13.233.167.219:8000/"
+    }
+  ],
+  "paths": {
+    "/api/auth/generateToken": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "token"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "token": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Response": {
+                    "value": {
+                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlLZXkiOiJCSEZTT1NzZmViODRyOGdydjRmOHNmc3Y4IiwiaWF0IjoxNjI1MDQxNDUyLCJleHAiOjE2MjUxMjc4NTJ9.ZnVyY-tvBkJvq27nWI4o-quP8xqbQiKA4ek6CdlIQuM"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-api-auth-generateToken",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "api-key",
+            "description": "BHFSOSsfeb84r8grv4f8sfsv8"
+          }
+        ]
+      }
+    },
+    "/api/User/createUser": {
+      "post": {
+        "summary": "Onboard Member & Wallet Creation",
+        "operationId": "post-api-User-createUser",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "",
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ],
+                  "x-examples": {
+                    "example-1": {
+                      "message": "User Created"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "message": "User Created"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "api-key",
+            "description": "BHFSOSsfeb84r8grv4f8sfsv8"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Token",
+            "description": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlLZXkiOiJCSEZTT1NzZmViODRyOGdydjRmOHNmc3Y4IiwiaWF0IjoxNjI2MjM2NjE4LCJleHAiOjE2MjYzMjMwMTh9.DFtC1BJoi8_TP0SZWgEblCGrdXdLSyaTy_0LsDar_g0"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "primaryBankAccNo": {
+                    "type": "number"
+                  },
+                  "primaryBankName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "primaryBankIFSC": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "primaryAccHolName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "contactNumber": {
+                    "type": "number"
+                  },
+                  "businessName": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "paymentType": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "transaction_limit": {
+                    "type": "number"
+                  },
+                  "beneficiary_type": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "addParam1": {
+                    "type": "string"
+                  },
+                  "addParam2": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "firstName",
+                  "lastName",
+                  "primaryBankAccNo",
+                  "primaryBankName",
+                  "primaryBankIFSC",
+                  "primaryAccHolName",
+                  "contactNumber",
+                  "businessName",
+                  "paymentType",
+                  "transaction_limit",
+                  "beneficiary_type",
+                  "addParam1",
+                  "addParam2"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "firstName": "Ankur Kumar",
+                    "lastName": "Gupta",
+                    "primaryBankAccNo": 2129755861,
+                    "primaryBankName": "Central Bank Of India",
+                    "primaryBankIFSC": "CBIN0283723",
+                    "primaryAccHolName": "Ankur Gupta",
+                    "contactNumber": 9935559412,
+                    "businessName": "Payment Service",
+                    "paymentType": "IMPS",
+                    "transaction_limit": 10000,
+                    "beneficiary_type": "1",
+                    "addParam1": "",
+                    "addParam2": ""
+                  }
+                }
+              }
+            }
+          },
+          "description": ""
+        }
+      }
+    },
+    "/api/Payment/processTransaction": {
+      "post": {
+        "summary": "Process outward Txn",
+        "operationId": "post-api-Payment-processTransaction",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "api-key",
+            "description": "BHFSOSsfeb84r8grv4f8sfsv8"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Token",
+            "description": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlLZXkiOiJCSEZTT1NzZmViODRyOGdydjRmOHNmc3Y4IiwiaWF0IjoxNjI2MjM2NjE4LCJleHAiOjE2MjYzMjMwMTh9.DFtC1BJoi8_TP0SZWgEblCGrdXdLSyaTy_0LsDar_g0"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "x-examples": {
+                  "example-1": {
+                    "txnRefNo": "NP2433411231263",
+                    "v_account": "ENUPAYPT00000001",
+                    "account_number": "2129755862",
+                    "account_holder_name": "Ankur Kumar Gupta",
+                    "ifsc_code": "CBIN0283723",
+                    "amount": "1",
+                    "reason": "test by ankur",
+                    "paymentType": "2"
+                  }
+                },
+                "properties": {
+                  "txnRefNo": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "v_account": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "account_number": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "account_holder_name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "ifsc_code": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "amount": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "paymentType": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/getUserbalance": {
+      "post": {
+        "summary": "Get Member Wallet Balance",
+        "operationId": "post-api-User-getUserbalance",
+        "responses": {},
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "api-key",
+            "description": "BHFSOSsfeb84r8grv4f8sfsv8"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Token",
+            "description": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlLZXkiOiJCSEZTT1NzZmViODRyOGdydjRmOHNmc3Y4IiwiaWF0IjoxNjI2MjM2NjE4LCJleHAiOjE2MjYzMjMwMTh9.DFtC1BJoi8_TP0SZWgEblCGrdXdLSyaTy_0LsDar_g0"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "userID": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "RefNo": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "addParam1": {
+                    "type": "string"
+                  },
+                  "addParam2": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "userID",
+                  "RefNo",
+                  "addParam1",
+                  "addParam2"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "userID": "B1",
+                    "RefNo": "NP16256445131523",
+                    "addParam1": "",
+                    "addParam2": ""
+                  }
+                }
+              },
+              "examples": {
+                "Test Example": {
+                  "value": {
+                    "userID": "B1",
+                    "RefNo": "NP16256445131523",
+                    "addParam1": "",
+                    "addParam2": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/getTransactionStatus": {
+      "post": {
+        "summary": "Get Transaction Status",
+        "operationId": "post-api-Payment-getTransactionStatus",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "api-key",
+            "description": "BHFSOSsfeb84r8grv4f8sfsv8"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "header",
+            "name": "Token",
+            "description": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlLZXkiOiJCSEZTT1NzZmViODRyOGdydjRmOHNmc3Y4IiwiaWF0IjoxNjI2MjM2NjE4LCJleHAiOjE2MjYzMjMwMTh9.DFtC1BJoi8_TP0SZWgEblCGrdXdLSyaTy_0LsDar_g0"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "description": "",
+                "type": "object",
+                "properties": {
+                  "txnRefNumber": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "nupRefNumber": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "addParam1": {
+                    "type": "string"
+                  },
+                  "addParam2": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "txnRefNumber",
+                  "nupRefNumber",
+                  "addParam1",
+                  "addParam2"
+                ],
+                "x-examples": {
+                  "example-1": {
+                    "txnRefNumber": "NP2433411231263",
+                    "nupRefNumber": "NP16257450258570",
+                    "addParam1": "",
+                    "addParam2": ""
+                  }
+                }
+              },
+              "examples": {
+                "Test Example": {
+                  "value": {
+                    "txnRefNumber": "NP2433411231263",
+                    "nupRefNumber": "NP16257450258570",
+                    "addParam1": "",
+                    "addParam2": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

@@ -1,0 +1,40 @@
+{
+    "name": "multidb",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "app": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "body-parser": "^1.19.0",
+        "config": "^3.3.6",
+        "cors": "^2.8.5",
+        "crypto-random-string": "^4.0.0",
+        "dotenv": "^8.6.0",
+        "express": "^4.16.4",
+        "express-handlebars": "^3.0.1",
+        "form-data": "^4.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.4.15",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.2",
+        "multiparty": "^4.2.2",
+        "mysql": "^2.18.1",
+        "mysql2": "^2.2.5",
+        "node-schedule": "^2.0.0",
+        "path": "^0.12.7",
+        "pg": "^7.8.1",
+        "sequelize": "^6.3.5",
+        "sqlite3": "^5.0.0",
+        "swagger-ui-express": "^4.1.6"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.4"
+    }
+}
